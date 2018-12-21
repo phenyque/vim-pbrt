@@ -2,30 +2,6 @@ setlocal autoindent
 setlocal indentexpr=PbrtIndent()
 setlocal indentkeys+=d
 
-"function! PbrtIndent()
-  "let lastNonBlank = prevNonBlank(v:lnum - 1)
-  "if lastNonBlank == 0
-    "" we are at the top of a file, no indent here
-    "return 0
-  "endif
-  "let prevNum = v:lnum - 1
-
-  "" strip comments from previous and current line
-  "let lastNonBlankLine = substitute(getline(lastNonBlank), '#.*$', '', '')
-  "let prevLine = substitute(getline(prevNum), '#.*$', '', '')
-  "let currentLine = substitute(getline(v:lnum), '#.*$', '', '')
-  "let prevIndent = indent(prevNum)
-
-  "if prevLine =~ '^[ \t]*[Attribute|World]\+Begin[ \t]*$'
-    "let retIndent = prevIndent + &shiftwidth
-  "endif
-  "if currentLine =~ '^[ \t]*[a-zA-Z]\+End[ \t]*$'
-    "let retIndent = prevIndent - &shiftwidth
-  "endif
-
-  "return -1
-
-"endfunction
 
 function! PbrtIndent()
   let prevNum = v:lnum - 1
